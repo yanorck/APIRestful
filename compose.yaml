@@ -22,6 +22,7 @@ services:
       context: ./api
     environment:
       DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-projeto}:${POSTGRES_PASSWORD:-projeto}@db:5432/${POSTGRES_DB:-projeto}
+      SECRET_KEY : ${SECRET_KEY:-mysecretkey}
     networks:
       - app-network  # Conectando à rede
     depends_on:
