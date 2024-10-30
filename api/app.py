@@ -6,6 +6,7 @@ import os
 import bcrypt
 import jwt
 from datetime import datetime, timedelta
+from scraping import scrape_data
 
 # Configurações do JWT
 SECRET_KEY = os.getenv("SECRET_KEY", "mysecretkey")
@@ -110,7 +111,8 @@ def consulta(Authorization: str):
     token = Authorization.split(" ")[1]
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        return "Messi"
+        scraped_data = scrape_data("https://myanimelist.net/topanime.php?type=upcoming")
+        return scraped_data
     except jwt.ExpiredSignatureError:
         raise HTTPException(status_code=403, detail="Token expirado")
     except jwt.InvalidTokenError:
