@@ -27,6 +27,8 @@ services:
     depends_on:
       db:
         condition: service_healthy  # Espera até o DB estar saudável
+    deploy:
+      replicas: 3
 
   web:
     build:  # Use build em vez de image se você estiver construindo a partir de um Dockerfile
@@ -42,4 +44,4 @@ services:
 
 networks:
   app-network:
-    driver: bridge
+    driver: overlay
