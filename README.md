@@ -1,34 +1,20 @@
 # APIRestful
 
+Desenvolvido por: **Yan Vieira Romano**
+
+---
+
+Para obter a documentação completa e explorar todos os detalhes do projeto, acesse:
+
+[![Documentação Completa do Projeto](https://img.shields.io/badge/Documentação-APIRestful-blue?style=for-the-badge&logo=github)](https://yanorck.github.io/APIRestful/)
+
+---
 
 
 
-# Inicializando
 
 
-
-
-## Comandos utilizados para publicação no Docker Hub
-
-Logando no Docker Hub
-
-&nbsp;&nbsp;&nbsp;&nbsp;```docker login```
-
-### Dockerfile da api <br/>
-Entrando na pasta api:  <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;```cd api```  <br/>
-Construindo a imagem:  <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;```docker build -t yanorck/api-apirestful_myanimelist:v1.0 .```  <br/>
-Publicando imagem no Docker Hub:  <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;```docker push yanorck/api-apirestful_myanimelist:v1.0```  <br/>
-
-### Dockerfile do web <br/>
-Entrando na pasta web: <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;```cd web``` <br/>
-Construindo a imagem: <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;```docker build -t yanorck/web-apirestful_myanimelist:v1.0 .``` <br/>
-    Publicando imagem no Docker Hub: <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;```docker push yanorck/web-apirestful_myanimelist:v1.0``` <br/>
+>
 
 
 

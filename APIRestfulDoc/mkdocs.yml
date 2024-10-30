@@ -1,0 +1,8 @@
+site_name: APIRestful
+
+nav:
+  - Home: index.md
+  - Instalação : install.md
+  - API: api.md
+  - WEB: web.md
+  - Docker Hub: dockerhub.md
