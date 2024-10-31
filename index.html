@@ -85,16 +85,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#welcome-to-mkdocs" class="nav-link">Welcome to MkDocs</a>
+            <li class="nav-item" data-bs-level="1"><a href="#apirestful-dos-principais-animes-em-lancamento-no-myanimelist" class="nav-link">APIRestful dos principais animes em lançamento no MyAnimeList</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#commands" class="nav-link">Commands</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#project-layout" class="nav-link">Project layout</a>
+            <li class="nav-item" data-bs-level="2"><a href="#o-que-e-o-myanimelist" class="nav-link">O que é o MyAnimeList?</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#funcionalidades-da-api" class="nav-link">Funcionalidades da API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link"></a>
+              <ul class="nav flex-column">
               </ul>
             </li>
         </ul>
@@ -102,21 +107,24 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="apirestful-dos-principais-animes-em-lancamento-no-myanimelist">APIRestful dos principais animes em lançamento no MyAnimeList</h1>
+<h2 id="o-que-e-o-myanimelist">O que é o MyAnimeList?</h2>
+<p><strong>MyAnimeList</strong> (MAL) é uma rede social voltada para fãs de animes e mangás, com o objetivo de oferecer um espaço para que os usuários possam criar listas pessoais, catalogando e classificando as obras de acordo com suas avaliações. Além de facilitar a descoberta de usuários com gostos similares, o MAL proporciona acesso a um vasto banco de dados sobre animes e mangás.</p>
+<p>Em 2015, o MyAnimeList recebeu cerca de 120 milhões de visitantes mensais, consolidando-se como uma das maiores plataformas de anime e mangá.<br />
+Saiba mais na <a href="https://pt.wikipedia.org/wiki/MyAnimeList">Wikipédia</a>.</p>
+<p><img alt="alt text" src="image.png" /></p>
+<h2 id="funcionalidades-da-api">Funcionalidades da API</h2>
+<p>A API utiliza web scraping para coletar dados dos principais animes em lançamento na página do MyAnimeList, focando nos 50 animes com maior número de membros que os favoritaram. A partir dessa coleta, a API retorna as seguintes informações para cada anime:</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong>rank</strong>: Posição do anime na lista de lançamentos em número de membros.</li>
+<li><strong>title</strong>: Título do anime.</li>
+<li><strong>link</strong>: Link direto para a página do anime no MyAnimeList.</li>
+<li><strong>image_url</strong>: URL da imagem de capa do anime.</li>
+<li><strong>data_lancamento</strong>: Data prevista para o lançamento do anime.</li>
+<li><strong>membros</strong>: Quantidade de membros que favoritaram o anime.</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<hr />
+<h1 id="_1"></h1></div>
             </div>
         </div>
 
@@ -198,5 +206,5 @@ docs/
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2024-10-30 22:54:35.700240+00:00
+Build Date UTC : 2024-10-31 14:01:26.260372+00:00
 -->
