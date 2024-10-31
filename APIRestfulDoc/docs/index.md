@@ -22,5 +22,7 @@ A API utiliza web scraping para coletar dados dos principais animes em lançamen
 
 ---
 
+## Vídeo de funcionamento
+![Assista ao vídeo no YouTube](https://img.youtube.com/vi/1p-2ADhFrWU/0.jpg)
+[Clique aqui para ver no YouTube](https://www.youtube.com/watch?v=1p-2ADhFrWU)
 
-![type:video](https://youtu.be/1p-2ADhFrWU)
