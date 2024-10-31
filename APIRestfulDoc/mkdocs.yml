@@ -3,6 +3,15 @@ site_name: APIRestful
 nav:
   - Home: index.md
   - Instalação : install.md
-  - API: api.md
-  - WEB: web.md
+  - Endpoints : endpoints.md
   - Docker Hub: dockerhub.md
+
+markdown_extensions:
+  - attr_list
+plugins:
+  - mkdocs-video:
+      is_video: True
+      video_muted: True
+      video_controls: True
+      css_style:
+        width: "50%"

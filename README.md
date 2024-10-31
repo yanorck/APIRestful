@@ -10,6 +10,8 @@ Para obter a documentação completa e explorar todos os detalhes do projeto, ac
 
 ---
 
+Localização do compose.yaml na raíz do projeto
+
 
 
 

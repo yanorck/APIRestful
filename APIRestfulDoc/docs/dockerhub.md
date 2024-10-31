@@ -18,3 +18,8 @@ Construindo a imagem: <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;```docker build -t yanorck/web-apirestful_myanimelist:v1.0 .``` <br/>
     Publicando imagem no Docker Hub: <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;```docker push yanorck/web-apirestful_myanimelist:v1.0```
+
+
+Links:  
+https://hub.docker.com/repository/docker/yanorck/api-apirestful_myanimelist/general  
+https://hub.docker.com/r/yanorck/web-apirestful_myanimelist  
