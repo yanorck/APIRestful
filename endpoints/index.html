@@ -49,11 +49,6 @@
                         </ul>
 
                     <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
                             <li class="nav-item">
                                 <a rel="prev" href="../install/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
@@ -102,50 +97,50 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h3 id="base-url">Base URL</h3>
+<div><h3 id="base-url">Base URL</h3>
 <p>A API pode ser acessada localmente pela URL base: <code>http://localhost:8080/api</code></p>
-<hr />
+<hr>
 <h2 id="endpoints">Endpoints</h2>
 <h3 id="1-registro-de-usuario">1. Registro de Usuário</h3>
-<p><strong>Endpoint:</strong> <code>/registrar</code>  (localhost:8080/api/registrar)<br />
-<strong>Método:</strong> <code>POST</code><br />
+<p><strong>Endpoint:</strong> <code>/registrar</code>  (localhost:8080/api/registrar)<br>
+<strong>Método:</strong> <code>POST</code><br>
 <strong>Descrição:</strong> Cria um novo usuário e retorna um token JWT de autenticação.</p>
 <h4 id="corpo-da-requisicao">Corpo da Requisição</h4>
 <pre><code class="language-json">{
-    &quot;name&quot;: &quot;string&quot;,
-    &quot;email&quot;: &quot;string&quot;,
-    &quot;senha&quot;: &quot;string&quot;
+    "name": "string",
+    "email": "string",
+    "senha": "string"
 }
 </code></pre>
 <h4 id="resposta-de-sucesso">Resposta de Sucesso</h4>
 <pre><code class="language-json">{
-    &quot;jwt&quot;: &quot;string&quot;
+    "jwt": "string"
 }
 </code></pre>
 <ul>
 <li><strong>jwt</strong>: Token JWT de autenticação para o usuário registrado.</li>
 </ul>
-<h2 id="_1"><img alt="alt text" src="../image-1.png" /></h2>
+<h2 id="_1"><img alt="alt text" src="../image-1.png"></h2>
 <h3 id="2-login-do-usuario">2. Login do Usuário</h3>
-<p><strong>Endpoint:</strong> <code>/login</code>  (localhost:8080/api/login)<br />
-<strong>Método:</strong> <code>POST</code><br />
+<p><strong>Endpoint:</strong> <code>/login</code>  (localhost:8080/api/login)<br>
+<strong>Método:</strong> <code>POST</code><br>
 <strong>Descrição:</strong> Autentica o usuário com email e senha, retornando um token JWT para acesso autorizado.</p>
 <h4 id="corpo-da-requisicao_1">Corpo da Requisição</h4>
 <pre><code class="language-json">{
-    &quot;email&quot;: &quot;string&quot;,
-    &quot;senha&quot;: &quot;string&quot;
+    "email": "string",
+    "senha": "string"
 }
 </code></pre>
 <h4 id="resposta-de-sucesso_1">Resposta de Sucesso</h4>
 <pre><code class="language-json">{
-    &quot;jwt&quot;: &quot;string&quot;
+    "jwt": "string"
 }
 </code></pre>
 <p><strong>jwt</strong>: Token JWT de autenticação para o usuário autenticado.</p>
-<h2 id="_2"><img alt="alt text" src="../image-2.png" /></h2>
+<h2 id="_2"><img alt="alt text" src="../image-2.png"></h2>
 <h3 id="3-consulta-de-animes">3. Consulta de Animes</h3>
-<p><strong>Endpoint:</strong> <code>/consultar</code>  (localhost:8080/api/consultar)<br />
-<strong>Método:</strong> <code>GET</code><br />
+<p><strong>Endpoint:</strong> <code>/consultar</code>  (localhost:8080/api/consultar)<br>
+<strong>Método:</strong> <code>GET</code><br>
 <strong>Descrição:</strong> Retorna a lista dos 50 animes mais aguardados, obtida via scraping do MyAnimeList.</p>
 <h4 id="cabecalho-da-requisicao">Cabeçalho da Requisição</h4>
 <ul>
@@ -154,12 +149,12 @@
 <h4 id="resposta-de-sucesso_2">Resposta de Sucesso</h4>
 <pre><code class="language-json">[  
     {
-        &quot;rank&quot;: &quot;integer&quot;,
-        &quot;title&quot;: &quot;string&quot;,
-        &quot;link&quot;: &quot;string&quot;,
-        &quot;image_url&quot;: &quot;string&quot;,
-        &quot;data_lancamento&quot;: &quot;string&quot;,
-        &quot;membros&quot;: &quot;string&quot;
+        "rank": "integer",
+        "title": "string",
+        "link": "string",
+        "image_url": "string",
+        "data_lancamento": "string",
+        "membros": "string"
     },
     ...
 ]
@@ -172,7 +167,7 @@
 <li><strong>data_lancamento</strong>: Data de lançamento.</li>
 <li><strong>membros</strong>: Quantidade de membros que favoritaram o anime.</li>
 </ul>
-<p><img alt="alt text" src="../image-3.png" /></p></div>
+<p><img alt="alt text" src="../image-3.png"></p></div></div>
             </div>
         </div>
 
@@ -186,29 +181,8 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
