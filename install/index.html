@@ -84,12 +84,31 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#como-executar-a-aplicacao" class="nav-link">Como executar a aplicação</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#instalando-docker-desktop" class="nav-link">Instalando Docker Desktop</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#executando-a-aplicacao" class="nav-link">Executando a aplicação</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="como-executar-a-aplicacao">Como executar a aplicação</h1>
+<h2 id="instalando-docker-desktop">Instalando Docker Desktop</h2>
+<p>Para rodar a aplicação é necessário possuir o docker desktop instalado, caso não possua: https://www.docker.com/products/docker-desktop/</p>
+<h2 id="executando-a-aplicacao">Executando a aplicação</h2>
+<p>Após clonar o repositório, entre no terminal na pasta raiz do projeto e execute:
+<code>docker compose up -d --build</code></p>
+<p>Após isso, as requisições para a API estarão funcionando pela porta localhost:8080.</p></div>
             </div>
         </div>
 

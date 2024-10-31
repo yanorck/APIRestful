@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Docker Hub - APIRestful</title>
+        <title>Endpoints - APIRestful</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                                 <a href="../web/" class="nav-link">WEB</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./" class="nav-link active" aria-current="page">Docker Hub</a>
+                                <a href="../dockerhub/" class="nav-link">Docker Hub</a>
                             </li>
                         </ul>
 
@@ -57,16 +57,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../web/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -85,7 +75,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="2"><a href="#comandos-utilizados-para-publicacao-no-docker-hub" class="nav-link">Comandos utilizados para publicação no Docker Hub</a>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#endpoints" class="nav-link">Endpoints</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -94,26 +85,76 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="comandos-utilizados-para-publicacao-no-docker-hub">Comandos utilizados para publicação no Docker Hub</h2>
-<p>Logando no Docker Hub</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code>docker login</code></p>
-<h3 id="dockerfile-da-api">Dockerfile da api <br/></h3>
-<p>Entrando na pasta api:  <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>cd api</code>  <br/>
-Construindo a imagem:  <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>docker build -t yanorck/api-apirestful_myanimelist:v1.0 .</code>  <br/>
-Publicando imagem no Docker Hub:  <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>docker push yanorck/api-apirestful_myanimelist:v1.0</code>  <br/></p>
-<h3 id="dockerfile-do-web">Dockerfile do web <br/></h3>
-<p>Entrando na pasta web: <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>cd web</code> <br/>
-Construindo a imagem: <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>docker build -t yanorck/web-apirestful_myanimelist:v1.0 .</code> <br/>
-    Publicando imagem no Docker Hub: <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>docker push yanorck/web-apirestful_myanimelist:v1.0</code></p>
-<p>Links:<br />
-https://hub.docker.com/repository/docker/yanorck/api-apirestful_myanimelist/general<br />
-https://hub.docker.com/r/yanorck/web-apirestful_myanimelist  </p></div>
+<h3 id="base-url">Base URL</h3>
+<p>A API pode ser acessada localmente pela URL base: <code>http://localhost:8080/api</code></p>
+<hr />
+<h2 id="endpoints">Endpoints</h2>
+<h3 id="1-registro-de-usuario">1. Registro de Usuário</h3>
+<p><strong>Endpoint:</strong> <code>/registrar</code>  (localhost:8080/api/registrar)<br />
+<strong>Método:</strong> <code>POST</code><br />
+<strong>Descrição:</strong> Cria um novo usuário e retorna um token JWT de autenticação.</p>
+<h4 id="corpo-da-requisicao">Corpo da Requisição</h4>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;string&quot;,
+    &quot;email&quot;: &quot;string&quot;,
+    &quot;senha&quot;: &quot;string&quot;
+}
+</code></pre>
+<h4 id="resposta-de-sucesso">Resposta de Sucesso</h4>
+<pre><code class="language-json">{
+    &quot;jwt&quot;: &quot;string&quot;
+}
+</code></pre>
+<ul>
+<li><strong>jwt</strong>: Token JWT de autenticação para o usuário registrado.</li>
+</ul>
+<hr />
+<h3 id="2-login-do-usuario">2. Login do Usuário</h3>
+<p><strong>Endpoint:</strong> <code>/login</code>  (localhost:8080/api/login)<br />
+<strong>Método:</strong> <code>POST</code><br />
+<strong>Descrição:</strong> Autentica o usuário com email e senha, retornando um token JWT para acesso autorizado.</p>
+<h4 id="corpo-da-requisicao_1">Corpo da Requisição</h4>
+<pre><code class="language-json">{
+    &quot;email&quot;: &quot;string&quot;,
+    &quot;senha&quot;: &quot;string&quot;
+}
+</code></pre>
+<h4 id="resposta-de-sucesso_1">Resposta de Sucesso</h4>
+<pre><code class="language-json">{
+    &quot;jwt&quot;: &quot;string&quot;
+}
+</code></pre>
+<p><strong>jwt</strong>: Token JWT de autenticação para o usuário autenticado.</p>
+<hr />
+<h3 id="3-consulta-de-animes">3. Consulta de Animes</h3>
+<p><strong>Endpoint:</strong> <code>/consultar</code>  (localhost:8080/api/consultar)<br />
+<strong>Método:</strong> <code>GET</code><br />
+<strong>Descrição:</strong> Retorna a lista dos 50 animes mais aguardados, obtida via scraping do MyAnimeList.</p>
+<h4 id="cabecalho-da-requisicao">Cabeçalho da Requisição</h4>
+<ul>
+<li><strong>Authorization</strong>: <code>"Bearer &lt;token_jwt&gt;"</code> (Token JWT obtido no registro ou login)</li>
+</ul>
+<h4 id="resposta-de-sucesso_2">Resposta de Sucesso</h4>
+<pre><code class="language-json">[  
+    {
+        &quot;rank&quot;: &quot;integer&quot;,
+        &quot;title&quot;: &quot;string&quot;,
+        &quot;link&quot;: &quot;string&quot;,
+        &quot;image_url&quot;: &quot;string&quot;,
+        &quot;data_lancamento&quot;: &quot;string&quot;,
+        &quot;membros&quot;: &quot;string&quot;
+    },
+    ...
+]
+</code></pre>
+<ul>
+<li><strong>rank</strong>: Posição do anime na lista.</li>
+<li><strong>title</strong>: Título do anime.</li>
+<li><strong>link</strong>: Link direto para o MyAnimeList.</li>
+<li><strong>image_url</strong>: URL da capa do anime.</li>
+<li><strong>data_lancamento</strong>: Data de lançamento.</li>
+<li><strong>membros</strong>: Quantidade de membros que favoritaram o anime.</li>
+</ul></div>
             </div>
         </div>
 
