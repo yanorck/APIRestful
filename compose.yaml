@@ -9,11 +9,6 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-projeto}
     volumes:
       - ./db_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-projeto}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
     networks:
       - app-network 
 
@@ -25,8 +20,7 @@ services:
     networks:
       - app-network
     depends_on:
-      db:
-        condition: service_healthy  # Espera até o DB estar saudável
+      - db
     deploy:
       replicas: 3
 
