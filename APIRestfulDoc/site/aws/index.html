@@ -4,27 +4,27 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>APIRestful</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fontawesome.min.css" rel="stylesheet">
-        <link href="css/brands.min.css" rel="stylesheet">
-        <link href="css/solid.min.css" rel="stylesheet">
-        <link href="css/v4-font-face.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>AWS - APIRestful</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">APIRestful</a>
+                <a class="navbar-brand" href="..">APIRestful</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,30 +35,30 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="." class="nav-link active" aria-current="page">Home</a>
+                                <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="install/" class="nav-link">Instalação</a>
+                                <a href="../install/" class="nav-link">Instalação</a>
                             </li>
                             <li class="nav-item">
-                                <a href="endpoints/" class="nav-link">Endpoints</a>
+                                <a href="../endpoints/" class="nav-link">Endpoints</a>
                             </li>
                             <li class="nav-item">
-                                <a href="dockerhub/" class="nav-link">Docker Hub</a>
+                                <a href="../dockerhub/" class="nav-link">Docker Hub</a>
                             </li>
                             <li class="nav-item">
-                                <a href="aws/" class="nav-link">AWS</a>
+                                <a href="./" class="nav-link active" aria-current="page">AWS</a>
                             </li>
                         </ul>
 
                     <ul class="nav navbar-nav ms-md-auto">
                             <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
+                                <a rel="prev" href="../dockerhub/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="install/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -80,20 +80,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#apirestful-dos-principais-animes-em-lancamento-no-myanimelist" class="nav-link">APIRestful dos principais animes em lançamento no MyAnimeList</a>
+            <li class="nav-item" data-bs-level="2"><a href="#deploy-na-aws" class="nav-link">Deploy na AWS</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#o-que-e-o-myanimelist" class="nav-link">O que é o MyAnimeList?</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#funcionalidades-da-api" class="nav-link">Funcionalidades da API</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#video-de-funcionamento" class="nav-link">Vídeo de funcionamento</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -101,26 +89,33 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<div><h1 id="apirestful-dos-principais-animes-em-lancamento-no-myanimelist">APIRestful dos principais animes em lançamento no MyAnimeList</h1>
-<h2 id="o-que-e-o-myanimelist">O que é o MyAnimeList?</h2>
-<p><strong>MyAnimeList</strong> (MAL) é uma rede social voltada para fãs de animes e mangás, com o objetivo de oferecer um espaço para que os usuários possam criar listas pessoais, catalogando e classificando as obras de acordo com suas avaliações. Além de facilitar a descoberta de usuários com gostos similares, o MAL proporciona acesso a um vasto banco de dados sobre animes e mangás.</p>
-<p>Em 2015, o MyAnimeList recebeu cerca de 120 milhões de visitantes mensais, consolidando-se como uma das maiores plataformas de anime e mangá.<br>
-Saiba mais na <a href="https://pt.wikipedia.org/wiki/MyAnimeList">Wikipédia</a>.</p>
-<p><img alt="alt text" src="image.png"></p>
-<h2 id="funcionalidades-da-api">Funcionalidades da API</h2>
-<p>A API utiliza web scraping para coletar dados dos principais animes em lançamento na página do MyAnimeList, focando nos 50 animes com maior número de membros que os favoritaram. A partir dessa coleta, a API retorna as seguintes informações para cada anime:</p>
+<div><h2 id="deploy-na-aws">Deploy na AWS</h2>
+<p>Para colocarmos nossa aplicação na aws foram feitos os seguintes passos</p>
+<h3 id="1-criando-a-primeira-role-para-eks">1 - Criando a primeira Role para EKS</h3>
+<p>Para criar uma nova Role selecionamos AWS Service e o serviço EKS (Elastic Kubernets Service) - Cluster. Após isso, selecionamos o AmazonEKSClusterPolicy para nossa Role e finalizamos.</p>
+<h3 id="2-aws-cloudformation">2 - AWS CloudFormation</h3>
+<p>Criamos uma stack para as conexões do nosso projeto e deixamos os blocos de rede padrões.</p>
+<h3 id="3-criando-eks">3 - Criando EKS</h3>
+<p>Em Elastic Kubernetes Service ciramos um novo cluster e selecionamos a role que haviamos criado, após isso selecionamos o stack de conexões que havíamos criado também. </p>
+<h3 id="4-instalando-aws-cli">4 - Instalando AWS CLI</h3>
+<p>Para iniciar nosso projeto no EKS precisamos nos comunicar com a AWS, para isso utilizei o AWS CLI windows.</p>
+<h3 id="5-adicionando-nossos-nodes">5 - Adicionando nossos nodes</h3>
+<p>Definimos um Node group e para isso, criamos mais uma role para os worker nodes, com profiles para que possa interagir com outros serviços. Nessa role colocamos as policies AmazonEKS_CNI_Policy e AmazonEKSWorkerNodePolicy.</p>
+<h3 id="5-criando-os-arquivos-deploymentyaml-e-serviceyaml">5 - Criando os arquivos deployment.yaml e service.yaml</h3>
+<p>Para finalizarmos e enviarmos o projeto para os pods, foi necessário criar os arquivos que servem como guia para a aws. Os arquivos encontram-se na pasta raíz do repositório.</p>
+<h3 id="6-configurando-o-aws-cli-e-configurando-pods">6 - Configurando o AWS CLI e configurando pods</h3>
 <ul>
-<li><strong>rank</strong>: Posição do anime na lista de lançamentos em número de membros.</li>
-<li><strong>title</strong>: Título do anime.</li>
-<li><strong>link</strong>: Link direto para a página do anime no MyAnimeList.</li>
-<li><strong>image_url</strong>: URL da imagem de capa do anime.</li>
-<li><strong>data_lancamento</strong>: Data prevista para o lançamento do anime.</li>
-<li><strong>membros</strong>: Quantidade de membros que favoritaram o anime.</li>
+<li>aws configure</li>
+<li>kubectl apply -f deployment.yaml</li>
+<li>kubectl apply -f service.yaml</li>
 </ul>
-<hr>
-<h2 id="video-de-funcionamento">Vídeo de funcionamento</h2>
-<p><img alt="Assista ao vídeo no YouTube" src="https://img.youtube.com/vi/1p-2ADhFrWU/0.jpg">
-<a href="https://www.youtube.com/watch?v=1p-2ADhFrWU">Clique aqui para ver no YouTube</a></p></div></div>
+<h3 id="7-visualizando-se-funcionou">7 - Visualizando se funcionou</h3>
+<ul>
+<li>kubectl get pods</li>
+<li>kubectl get services</li>
+</ul>
+<h3 id="8-video-funcionando">8 - Vídeo Funcionando</h3>
+<p>https://youtu.be/xMzDFUAlNfU</p></div></div>
             </div>
         </div>
 
@@ -128,12 +123,12 @@ Saiba mais na <a href="https://pt.wikipedia.org/wiki/MyAnimeList">Wikipédia</a>
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
+        <script src="../js/base.js"></script>
 
         <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -178,8 +173,3 @@ Saiba mais na <a href="https://pt.wikipedia.org/wiki/MyAnimeList">Wikipédia</a>
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2024-11-28 02:23:54.061530+00:00
--->
