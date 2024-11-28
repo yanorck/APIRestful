@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Instalação - APIRestful</title>
+        <title>AWS - APIRestful</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
                                 <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./" class="nav-link active" aria-current="page">Instalação</a>
+                                <a href="../install/" class="nav-link">Instalação</a>
                             </li>
                             <li class="nav-item">
                                 <a href="../endpoints/" class="nav-link">Endpoints</a>
@@ -47,18 +47,18 @@
                                 <a href="../dockerhub/" class="nav-link">Docker Hub</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../aws/" class="nav-link">AWS</a>
+                                <a href="./" class="nav-link active" aria-current="page">AWS</a>
                             </li>
                         </ul>
 
                     <ul class="nav navbar-nav ms-md-auto">
                             <li class="nav-item">
-                                <a rel="prev" href=".." class="nav-link">
+                                <a rel="prev" href="../dockerhub/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../endpoints/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -80,16 +80,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#como-executar-a-aplicacao" class="nav-link">Como executar a aplicação</a>
+            <li class="nav-item" data-bs-level="2"><a href="#deploy-na-aws" class="nav-link">Deploy na AWS</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#instalando-docker-desktop" class="nav-link">Instalando Docker Desktop</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#executando-a-aplicacao" class="nav-link">Executando a aplicação</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -97,13 +89,33 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<div><h1 id="como-executar-a-aplicacao">Como executar a aplicação</h1>
-<h2 id="instalando-docker-desktop">Instalando Docker Desktop</h2>
-<p>Para rodar a aplicação é necessário possuir o docker desktop instalado, caso não possua: https://www.docker.com/products/docker-desktop/</p>
-<h2 id="executando-a-aplicacao">Executando a aplicação</h2>
-<p>Após clonar o repositório, entre no terminal na pasta raiz do projeto e execute:
-<code>docker compose up -d</code></p>
-<p>Após isso, as requisições para a API estarão funcionando pela porta localhost:8080.</p></div></div>
+<div><h2 id="deploy-na-aws">Deploy na AWS</h2>
+<p>Para colocarmos nossa aplicação na aws foram feitos os seguintes passos</p>
+<h3 id="1-criando-a-primeira-role-para-eks">1 - Criando a primeira Role para EKS</h3>
+<p>Para criar uma nova Role selecionamos AWS Service e o serviço EKS (Elastic Kubernets Service) - Cluster. Após isso, selecionamos o AmazonEKSClusterPolicy para nossa Role e finalizamos.</p>
+<h3 id="2-aws-cloudformation">2 - AWS CloudFormation</h3>
+<p>Criamos uma stack para as conexões do nosso projeto e deixamos os blocos de rede padrões.</p>
+<h3 id="3-criando-eks">3 - Criando EKS</h3>
+<p>Em Elastic Kubernetes Service ciramos um novo cluster e selecionamos a role que haviamos criado, após isso selecionamos o stack de conexões que havíamos criado também. </p>
+<h3 id="4-instalando-aws-cli">4 - Instalando AWS CLI</h3>
+<p>Para iniciar nosso projeto no EKS precisamos nos comunicar com a AWS, para isso utilizei o AWS CLI windows.</p>
+<h3 id="5-adicionando-nossos-nodes">5 - Adicionando nossos nodes</h3>
+<p>Definimos um Node group e para isso, criamos mais uma role para os worker nodes, com profiles para que possa interagir com outros serviços. Nessa role colocamos as policies AmazonEKS_CNI_Policy e AmazonEKSWorkerNodePolicy.</p>
+<h3 id="5-criando-os-arquivos-deploymentyaml-e-serviceyaml">5 - Criando os arquivos deployment.yaml e service.yaml</h3>
+<p>Para finalizarmos e enviarmos o projeto para os pods, foi necessário criar os arquivos que servem como guia para a aws. Os arquivos encontram-se na pasta raíz do repositório.</p>
+<h3 id="6-configurando-o-aws-cli-e-configurando-pods">6 - Configurando o AWS CLI e configurando pods</h3>
+<ul>
+<li>aws configure</li>
+<li>kubectl apply -f deployment.yaml</li>
+<li>kubectl apply -f service.yaml</li>
+</ul>
+<h3 id="7-visualizando-se-funcionou">7 - Visualizando se funcionou</h3>
+<ul>
+<li>kubectl get pods</li>
+<li>kubectl get services</li>
+</ul>
+<h3 id="8-video-funcionando">8 - Vídeo Funcionando</h3>
+<p>https://youtu.be/xMzDFUAlNfU</p></div></div>
             </div>
         </div>
 
