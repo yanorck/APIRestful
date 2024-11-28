@@ -1,0 +1,89 @@
+# Deployment para o Banco de Dados (Postgres)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:17
+        env:
+        - name: POSTGRES_DB
+          value: "projeto"
+        - name: POSTGRES_USER
+          value: "projeto"
+        - name: POSTGRES_PASSWORD
+          value: "projeto"
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-storage
+      volumes:
+      - name: postgres-storage
+        emptyDir: {} # Use PersistentVolume para produção.
+
+---
+
+# Deployment para a API (em pod separado)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: yanorck/api-apirestful_myanimelist:v1.0
+        env:
+        - name: DATABASE_URL
+          value: "postgresql+psycopg2://projeto:projeto@postgres:5432/projeto"
+        - name: SECRET_KEY
+          value: "mysecretkey"
+        ports:
+        - containerPort: 5000
+
+---
+
+# Deployment para o Web (em pod separado)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: yanorck/web-apirestful_myanimelist:v1.0
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx/conf.d/default.conf
+          name: nginx-config
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config-map

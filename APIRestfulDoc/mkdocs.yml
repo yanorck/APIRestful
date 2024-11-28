@@ -5,6 +5,7 @@ nav:
   - Instalação : install.md
   - Endpoints : endpoints.md
   - Docker Hub: dockerhub.md
+  - AWS: aws.md
 
 markdown_extensions:
   - attr_list
